@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import "./Login.css";
 
-async function loginUser(credentials) {
+const loginUser = async (credentials) => {
     return fetch("http://localhost:8080/login", {
         method: "POST",
         headers: {
@@ -11,7 +11,7 @@ async function loginUser(credentials) {
         },
         body: JSON.stringify(credentials),
     }).then((data) => data.json());
-}
+};
 
 const Login = ({ setToken }) => {
     const [username, setUserName] = useState();
@@ -46,7 +46,7 @@ const Login = ({ setToken }) => {
     );
 };
 
-Login.PropTypes = {
+Login.propTypes = {
     setToken: PropTypes.func.isRequired,
 };
 
