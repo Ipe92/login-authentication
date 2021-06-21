@@ -10,7 +10,11 @@ const setToken = (userToken) => {
     sessionStorage.setItem("token", JSON.stringify(userToken));
 };
 
-const getToken = () => {};
+const getToken = () => {
+    const tokenString = sessionStorage.getItem("token");
+    const userToken = JSON.parse(tokenString);
+    return userToken?.token;
+};
 
 const App = () => {
     const token = getToken();
